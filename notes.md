@@ -9,12 +9,13 @@
 - A middleware that allows to slightly alter behavior of actions
 - To install: `npm install --save redux-thunk`
 - Inside of `index.js` file, need to use Redux `applyMiddlware` method to add Thunk to store
+
   ```javaScript 
   const store = createStore(rootReducer, applyMiddleware(thunk));
   ```
+
 - Thunk allows actions creators to return a function when it typically expects an object(the action)
 - Gives the function access to `dispatch` function which allows dispatching of actions inside of returned function
-- 
 
 ## Fetch Review
 
