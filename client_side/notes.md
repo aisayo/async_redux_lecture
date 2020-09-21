@@ -1,7 +1,7 @@
 # Async Redux
 
 - Goal: Making asynchronous calls with actions
-- Problem: Actions in Redux are dispatched synchronously
+- Problem: Actions in Redux are dispatched synchronously/Action creators are expected to return an object
 
 ## Thunk
 
