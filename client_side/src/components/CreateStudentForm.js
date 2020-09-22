@@ -23,6 +23,7 @@ class CreateStudentForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         this.props.createStudent(this.state)
+        this.resetForm()
     }
 
     resetForm = () => {
