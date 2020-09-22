@@ -10,6 +10,9 @@ export const rootReducer = (state = initialState, action) => {
             return {...state, students: [...state.students, action.payload]}
         case 'DELETE_STUDENT':
             return {students: state.students.filter(student => student.id !== action.payload)}
+        case 'EDIT_STUDENT':
+            const students = state.students.map(student => student.id !== action.payload.id ? student : action.payload )
+            return { students }    
         default:
             return state;
     }

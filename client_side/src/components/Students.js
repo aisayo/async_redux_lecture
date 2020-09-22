@@ -21,12 +21,16 @@ class Students extends Component {
         })
     }
 
+    setEditId = () => {
+        this.setState({ editId: false})
+    }
+
     render() {
         
         return (
             <div>
                 {this.state.editId ? 
-                    <EditStudentForm /> : 
+                    <EditStudentForm studentId={this.state.editId} setEditId={this.setEditId}/> : 
                     <CreateStudentForm editId={this.state.editId} turnEditOff={this.turnEditOff}/> 
                 }
                 <StudentsList handleEdit={this.handleEdit}/>

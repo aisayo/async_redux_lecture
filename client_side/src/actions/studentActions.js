@@ -30,3 +30,15 @@ export const deleteStudent = student => {
         
     }
 }
+
+export const editStudent = student => {
+    return dispatch => {
+        dispatch({type: 'EDIT_STUDENT', payload: student})
+        fetch(`http://127.0.0.1:3000/students/${student.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(student),
+            headers: { 'Content-Type': 'application/json'}
+        })
+        
+    }
+}

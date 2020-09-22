@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+import { editStudent } from '../actions/studentActions'
+
 class EditStudentForm extends Component {
 
     state = {
+        id: '',
         name: '',
         school: '',
         city: '',
         state: ''
+    }
+
+    componentDidMount(){
+        this.findStudent()
     }
 
     handleChange = e => {
@@ -18,28 +25,30 @@ class EditStudentForm extends Component {
         })
     }
 
-    handleSubmit = e => {
-        e.preventDefault()
-    }
-
-    editStudent = () => {
-        const { students, editId, turnEditOff } = this.props
-        const student = students.find(student => student.id === editId)
+    findStudent = () => {
+        const { students, studentId} = this.props
+        const student = students.find(student => student.id === studentId)
         this.setState({
+            id: student.id,
             name: student.name,
             school: student.school,
             city: student.city,
             state: student.state
         })
-        turnEditOff()
     }
 
+    update = e => {
+        e.preventDefault()
+        this.props.editStudent(this.state)
+        this.props.setEditId()
+    }
+
+
     render() {
-    console.log(this.props)
         return (
             <>
             Edit Student Form
-            {/* <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.update}>
 
                 <label>Name</label>
                 <input 
@@ -85,9 +94,9 @@ class EditStudentForm extends Component {
                 <br />
                 <br />
 
-                <input type='submit' value='Create Student' />  
+                <input type='submit' value='Edit Student' />  
 
-            </form> */}
+            </form>
 
             </>
         );
@@ -98,4 +107,4 @@ const mapStateToProps = state => {
     return { students: state.students }
 }
 
-export default connect(mapStateToProps)(EditStudentForm);
+export default connect(mapStateToProps, { editStudent })(EditStudentForm);
