@@ -1,10 +1,11 @@
 # Async Redux
 
 - Goal: Making asynchronous calls with actions
-- Problem: Actions in Redux are dispatched synchronously/Action creators are expected to return an object
+- Problem: Action creators are expected to return an object
 
 ## Thunk
 
+- Thunk is a concept in programming where a function is used to delay the evaluation/calculation of an operation
 - Handles asynchronous calls with Redux
 - A middleware that allows to slightly alter behavior of actions
 - To install: `npm install --save redux-thunk`
