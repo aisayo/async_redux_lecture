@@ -22,7 +22,7 @@ export const createStudent = student => {
 export const deleteStudent = student => {
     return dispatch => {
         dispatch({type: 'DELETE_STUDENT', payload: student.id})
-        return fetch(`http://127.0.0.1:3000/students/${student.id}`, {
+        fetch(`http://127.0.0.1:3000/students/${student.id}`, {
             method: 'DELETE',
             body: JSON.stringify(student),
             headers: { 'Content-Type': 'application/json'}

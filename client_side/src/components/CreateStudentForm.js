@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import {createStudent} from '../actions/studentActions'
 
-class StudentForm extends Component {
+class CreateStudentForm extends Component {
 
     state = {
         name: '',
@@ -25,22 +25,19 @@ class StudentForm extends Component {
         this.props.createStudent(this.state)
     }
 
-    editStudent = () => {
-        const { students, editId } = this.props
-        const student = students.find(student => student.id === editId)
+    resetForm = () => {
         this.setState({
-            name: student.name,
-            school: student.school,
-            city: student.city,
-            state: student.state
+            name: '',
+            school: '',
+            city: '',
+            state: ''
         })
-
     }
 
     render() {
-    console.log(this.props)
         return (
             <>
+
             <form onSubmit={this.handleSubmit}>
 
                 <label>Name</label>
@@ -96,8 +93,4 @@ class StudentForm extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return { students: state.students }
-}
-
-export default connect(mapStateToProps, { createStudent })(StudentForm);
+export default connect(null, { createStudent })(CreateStudentForm);

@@ -8,6 +8,7 @@ const StudentsList = ({ students, handleEdit}) => {
     return (
         <div>
             <ul>
+                {students.length ? <h1>({students.length}) Students</h1> : <h1>No Students</h1>}
                 {students.map(student => <StudentCard key={student.id} student={student} handleEdit={handleEdit}/>)}
             </ul>
         </div>

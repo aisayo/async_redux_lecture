@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import { fetchStudents } from '../actions/studentActions'
-import StudentForm from './StudentForm'
+import CreateStudentForm from './CreateStudentForm'
+import EditStudentForm from './EditStudentForm'
 import StudentsList from './StudentsList'
 
 
@@ -24,7 +25,10 @@ class Students extends Component {
         
         return (
             <div>
-                <StudentForm editId={this.state.editId}/>
+                {this.state.editId ? 
+                    <EditStudentForm /> : 
+                    <CreateStudentForm editId={this.state.editId} turnEditOff={this.turnEditOff}/> 
+                }
                 <StudentsList handleEdit={this.handleEdit}/>
             </div>
         );
