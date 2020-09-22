@@ -8,6 +8,7 @@ const StudentCard = ({ student, deleteStudent, handleEdit }) => {
     return (
         <div>
             {student.name} - {student.school} 
+            <br/>
             <button onClick={() => handleEdit(student)}> Edit </button>
             <button onClick={() => deleteStudent(student)}>Delete</button>
         </div>
