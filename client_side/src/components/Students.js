@@ -9,7 +9,7 @@ import StudentsList from './StudentsList'
 
 class Students extends Component {
 
-    state = { editId: false }
+    state = { studentId: false }
 
     componentDidMount() {
         this.props.fetchStudents()
@@ -17,21 +17,21 @@ class Students extends Component {
 
     handleEdit = (student) => {
         this.setState({
-            editId: student.id
+            studentId: student.id
         })
     }
 
-    setEditId = () => {
-        this.setState({ editId: false})
+    resetStudentId = () => {
+        this.setState({ studentId: false})
     }
 
     render() {
         
         return (
             <div>
-                {this.state.editId ? 
-                    <EditStudentForm studentId={this.state.editId} setEditId={this.setEditId}/> : 
-                    <CreateStudentForm editId={this.state.editId} turnEditOff={this.turnEditOff}/> 
+                {this.state.studentId ? 
+                    <EditStudentForm studentId={this.state.studentId} resetStudentId={this.resetStudentId}/> : 
+                    <CreateStudentForm /> 
                 }
                 <StudentsList handleEdit={this.handleEdit}/>
             </div>
