@@ -16,7 +16,3 @@ const StudentCard = ({ student, deleteStudent, handleEdit }) => {
 };
 
 export default connect(null, { deleteStudent })(StudentCard);
-
-
-//when user clicks on edit button
-// need to set editMode to true 

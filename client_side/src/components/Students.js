@@ -30,7 +30,10 @@ class Students extends Component {
         return (
             <div>
                 {this.state.studentId ? 
-                    <EditStudentForm studentId={this.state.studentId} resetStudentId={this.resetStudentId}/> : 
+                    <EditStudentForm 
+                        studentId={this.state.studentId} 
+                        resetStudentId={this.resetStudentId}
+                    /> : 
                     <CreateStudentForm /> 
                 }
                 <StudentsList handleEdit={this.handleEdit}/>

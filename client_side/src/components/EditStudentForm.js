@@ -40,14 +40,14 @@ class EditStudentForm extends Component {
     update = e => {
         e.preventDefault()
         this.props.editStudent(this.state)
-        this.props.setEditId()
+        this.props.resetStudentId()
     }
 
 
     render() {
         return (
             <>
-            Edit Student Form
+            <h1>Edit Student Form</h1>
             <form onSubmit={this.update}>
 
                 <label>Name</label>
